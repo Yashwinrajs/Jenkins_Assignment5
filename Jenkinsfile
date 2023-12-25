@@ -8,8 +8,8 @@ parameters {
 }
 
 environment {
-  env = "$Environment"
-  user = "$name"
+  env = params.Environment
+  user = params.name
 }
 
 	stages {
