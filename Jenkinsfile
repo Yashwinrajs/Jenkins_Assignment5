@@ -28,6 +28,9 @@ environment {
     					}
   				}
   		stage('stage3') {
+					when {
+  						branch 'main* dev* '
+						}
     				steps {
       					sh 'echo "Branch Name: ${BRANCH_NAME}"'
     					}
