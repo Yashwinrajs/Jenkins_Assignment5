@@ -12,6 +12,7 @@ environment {
 
 agent {
   label 'Agent-Sonar'
+	}
 	stages {
   		stage('stage1') {
     				steps {
@@ -27,7 +28,5 @@ agent {
   				}
 
 		}
-
-	}
 
 }
