@@ -27,14 +27,14 @@ environment {
 					sh 'echo "Jenkins URL: ${JENKINS_URL}"'
     					}
   				}
-		when {
-		allOf {
-                	expression { currentBuild.resultIsBetterOrEqualTo('SUCCESS') }
-			branch comparator: 'EQUALS', pattern: 'origin/main'
-		}
-            	}
   		stage('stage3') {
 				agent { label 'Agent-Tomcat' }
+				when {
+				allOf {
+                			expression { currentBuild.resultIsBetterOrEqualTo('SUCCESS') }
+					branch comparator: 'EQUALS', pattern: 'origin/main'
+				}
+            			}
     				steps {
       					sh 'echo "Branch Name: ${GIT_BRANCH}"'
     				}
