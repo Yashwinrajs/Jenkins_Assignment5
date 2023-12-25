@@ -18,6 +18,7 @@ environment {
     				steps {
       					sh 'echo "Hi this is: ${user}"'
 					sh 'echo "Build URL: ${BUILD_URL}"'
+					sh 'echo "Branch Name: ${BRANCH_NAME}"'
     					}
   				}
 		stage('stage2') {
@@ -32,7 +33,7 @@ environment {
 				when {
 				allOf {
                 		expression { currentBuild.resultIsBetterOrEqualTo('SUCCESS') }
-				branch 'mai*'
+				branch comparator: 'EQUALS', pattern: 'main'
 				}
             			}
 				agent { label 'Agent-Tomcat' }
