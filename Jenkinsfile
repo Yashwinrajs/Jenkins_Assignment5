@@ -29,14 +29,14 @@ environment {
   				}
   		stage('stage3') {
     				steps {
-      					echo "Branch Name: ${BRANCH_NAME}"
+      					sh 'echo "Branch Name: ${BRANCH_NAME}"'
     					}
   				}
 	post {
   	success {
     		stage('stage4') {
     				steps {
-      					echo "Build ID: ${BUILD_ID}"
+      					sh 'echo "Build ID: ${BUILD_ID}"'
     					}
   				}
   		}
