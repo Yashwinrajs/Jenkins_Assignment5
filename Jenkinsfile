@@ -18,7 +18,7 @@ environment {
   		stage('stage1') {
     				steps {
       					sh 'echo "Hi This is ${user}"'
-					sh 'echo "Build URL: ${BUILD_URL}"'
+					sh 'echo "Build URL: ${BUIL_URL}"'
     					}
   				}
 		stage('stage2') {
