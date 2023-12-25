@@ -1,8 +1,6 @@
 pipeline {
 
-agent {
-  label 'Agent-Sonar'
-	}
+agent none
 
 parameters {
   choice choices: ['dev', 'qa'], name: 'Environment'
@@ -16,20 +14,20 @@ environment {
 
 	stages {
   		stage('stage1') {
+				agent { label 'Agent-Sonar' }
     				steps {
       					sh 'echo "Hi This is ${user}"'
 					sh 'echo "Build URL: ${BUILD_URL}"'
     					}
   				}
 		stage('stage2') {
+				agent { label 'Agent-Sonar' }
     				steps {
       					sh 'echo "Deployment Environment: ${env}"'
 					sh 'echo "Jenkins URL: ${JENKINS_URL}"'
     					}
   				}
-agent {
-  label 'Agent-Tomcat'
-	}
+
   		stage('stage3') {
 				when {
 				allOf {
@@ -37,6 +35,7 @@ agent {
 				branch 'main'
 				}
             			}
+				agent { label 'Agent-Tomcat' }
     				steps {
       					sh 'echo "Branch Name: ${BRANCH_NAME}"'
     				}
@@ -45,6 +44,7 @@ agent {
 				when {
                 		expression { currentBuild.resultIsBetterOrEqualTo('SUCCESS') }
             			}
+				agent { label 'Agent-Tomcat' }
     				steps {
       					sh 'echo "Build ID: ${BUILD_ID}"'
     					}
