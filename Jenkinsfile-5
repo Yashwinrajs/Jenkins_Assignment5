@@ -32,7 +32,7 @@ environment {
 				when {
 				allOf {
                 			expression { currentBuild.resultIsBetterOrEqualTo('SUCCESS') }
-					branch comparator: 'EQUALS', pattern: 'origin/main'
+					branch comparator: 'EQUALS', pattern: 'main'
 				}
             			}
     				steps {
