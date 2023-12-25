@@ -8,15 +8,15 @@ parameters {
 }
 
 environment {
-  env = "params.Environment"
-  user = "params.usr"
+  env = "${params.Environment}"
+  user = "${params.usr}"
 }
 
 	stages {
   		stage('stage1') {
 				agent { label 'Agent-Sonar' }
     				steps {
-      					sh 'echo "Hi this is ${user}"'
+      					sh 'echo "Hi this is: ${user}"'
 					sh 'echo "Build URL: ${BUILD_URL}"'
     					}
   				}
