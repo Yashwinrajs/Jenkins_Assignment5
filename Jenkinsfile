@@ -34,7 +34,7 @@ environment {
   				}
 	post {
   	success {
-		'stage2'
+		stage : 'stage2'
     		stage('stage4') {
     				steps {
       					sh 'echo "Build ID: ${BUILD_ID}"'
