@@ -1,5 +1,9 @@
 pipeline {
 
+agent {
+  label 'Agent-Sonar'
+	}
+
 parameters {
   choice choices: ['dev', 'qa'], name: 'Environment'
   string defaultValue: 'Yashwinraj', name: 'name'
@@ -8,11 +12,8 @@ parameters {
 environment {
   env = "${Environment}"
   user = "${name}"
-	}
-
-agent {
-  label 'Agent-Sonar'
-	}
+}
+	
 	stages {
   		stage('stage1') {
     				steps {
