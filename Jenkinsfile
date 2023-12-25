@@ -27,6 +27,9 @@ environment {
 					sh 'echo "Jenkins URL: ${JENKINS_URL}"'
     					}
   				}
+agent {
+  label 'Agent-Tomcat'
+	}
   		stage('stage3') {
 				when {
 				allOf {
