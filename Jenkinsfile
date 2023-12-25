@@ -32,6 +32,7 @@ environment {
 				when {
 				allOf {
                 		expression { currentBuild.resultIsBetterOrEqualTo('SUCCESS') }
+				branch 'mai*'
 				}
             			}
 				agent { label 'Agent-Tomcat' }
