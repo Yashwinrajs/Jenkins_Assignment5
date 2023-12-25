@@ -32,7 +32,7 @@ environment {
 				when {
 				allOf {
                 		expression { currentBuild.resultIsBetterOrEqualTo('SUCCESS') }
-				branch 'origin/main'
+				branch comparator: 'EQUALS', pattern: 'origin/main'
 				}
             			}
 				agent { label 'Agent-Tomcat' }
