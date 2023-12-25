@@ -10,21 +10,21 @@ parameters {
 }
 
 environment {
-  env = "${Environment}"
-  user = "${name}"
+  env = '${Environment}'
+  user = '${name}'
 }
 	
 	stages {
   		stage('stage1') {
     				steps {
       					sh 'echo "Hi This is $user"'
-					sh 'echo "Build URL: ${BUILD_URL}"'
+					sh 'echo "${BUILD_URL}"'
     					}
   				}
 		stage('stage2') {
     				steps {
       					sh 'echo "Deployment Environment: ${env}"'
-					sh 'echo "Jenkins URL: ${JENKINS_URL}"'
+					sh 'echo "${JENKINS_URL}"'
     					}
   				}
 
