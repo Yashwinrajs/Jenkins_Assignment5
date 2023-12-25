@@ -22,6 +22,9 @@ environment {
     					}
   				}
 		stage('stage2') {
+				when {
+                		expression { currentBuild.resultIsBetterOrEqualTo('SUCCESS') }
+            			}
     				steps {
       					sh 'echo "Deployment Environment: ${env}"'
 					sh 'echo "Jenkins URL: ${JENKINS_URL}"'
