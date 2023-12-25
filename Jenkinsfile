@@ -46,6 +46,7 @@ environment {
 				agent { label 'Agent-Tomcat' }
     				steps {
       					sh 'echo "Build ID: ${BUILD_ID}"'
+					build 'demo-Fifth'
     					}
 				}
 	
