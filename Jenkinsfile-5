@@ -36,7 +36,8 @@ environment {
             			}
 				agent { label 'Agent-Tomcat' }
     				steps {
-      					sh 'echo "Branch Name: ${BRANCH_NAME}"'
+      					sh 'echo "Branch Name: ${GIT_BRANCH}"'
+					sh 'echo "Branch Name: ${GIT_LOCAL_BRANCH}"'
     				}
   				}
     		stage('stage4') {
