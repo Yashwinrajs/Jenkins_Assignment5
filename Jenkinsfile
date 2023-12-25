@@ -10,8 +10,8 @@ parameters {
 }
 
 environment {
-  env = "${Environment}"
-  user = "${name}"
+  env = "$Environment"
+  user = "$name"
 }
 
 	stages {
@@ -30,34 +30,4 @@ environment {
 
 		}
 
-post {
-  success {
-    
-agent {
-  label 'Agent-Tomcat'
-}
-	stages {
-  		stage('stage3') {
-				when {
-  					branch 'main* dev* '
-				}
-    				steps {
-      					echo "Branch Name: ${BRANCH_NAME}"
-    					}
-  				}
-	post {
-  		success {
-    		stage('stage4') {
-    				steps {
-      					echo "Build ID: ${BUILD_ID}"
-    					}
-  				}
-  			}
-		}
-
-		}
-
-	}
- }
-	
 }
