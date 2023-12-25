@@ -10,8 +10,8 @@ parameters {
 }
 
 environment {
-  env = '${Environment}'
-  user = '${name}'
+  env : '${Environment}'
+  user : '${name}'
 }
 	
 	stages {
