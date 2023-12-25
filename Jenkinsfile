@@ -32,17 +32,12 @@ environment {
       					sh 'echo "Branch Name: ${BRANCH_NAME}"'
     					}
   				}
-	post {
-  	success {
-		stage : 'stage2'
     		stage('stage4') {
     				steps {
       					sh 'echo "Build ID: ${BUILD_ID}"'
     					}
-  				}
-	}
-	}
-
+				}
+	
 	}
 	
 }
