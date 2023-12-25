@@ -8,8 +8,8 @@ parameters {
 }
 
 environment {
-  env = "${params.Environment}"
-  user = "${params.usr}"
+  env = "params.Environment"
+  user = "params.usr"
 }
 
 	stages {
