@@ -18,27 +18,30 @@ environment {
   		stage('stage1') {
     				steps {
       					sh 'echo "Hi This is ${user}"'
-					sh 'ech "Build URL: ${BUILD_URL}"'
+					sh 'echo "Build URL: ${BUILD_URL}"'
     					}
   				}
 		stage('stage2') {
-				when {
-                		expression { currentBuild.resultIsBetterOrEqualTo('SUCCESS') }
-            			}
     				steps {
       					sh 'echo "Deployment Environment: ${env}"'
 					sh 'echo "Jenkins URL: ${JENKINS_URL}"'
     					}
   				}
   		stage('stage3') {
+				when {
+                		expression { currentBuild.resultIsBetterOrEqualTo('SUCCESS') }
+            			}
 					when {
   						branch 'main'
-						}
+					}
     				steps {
       					sh 'echo "Branch Name: ${BRANCH_NAME}"'
-    					}
+    				}
   				}
     		stage('stage4') {
+				when {
+                		expression { currentBuild.resultIsBetterOrEqualTo('SUCCESS') }
+            			}
     				steps {
       					sh 'echo "Build ID: ${BUILD_ID}"'
     					}
