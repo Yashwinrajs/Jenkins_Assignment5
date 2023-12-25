@@ -34,13 +34,14 @@ environment {
   				}
 	post {
   	success {
+
+	}
+	}
     		stage('stage4') {
     				steps {
       					sh 'echo "Build ID: ${BUILD_ID}"'
     					}
   				}
-  		}
-		}
 
 	}
 	
