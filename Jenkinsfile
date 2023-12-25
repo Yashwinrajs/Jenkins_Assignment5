@@ -29,11 +29,11 @@ environment {
   				}
   		stage('stage3') {
 				when {
+				allOf {
                 		expression { currentBuild.resultIsBetterOrEqualTo('SUCCESS') }
+				branch 'main'
+				}
             			}
-					when {
-  						branch 'main'
-					}
     				steps {
       					sh 'echo "Branch Name: ${BRANCH_NAME}"'
     				}
