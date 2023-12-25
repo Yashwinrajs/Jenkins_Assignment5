@@ -27,17 +27,7 @@ environment {
 					sh 'echo "Jenkins URL: ${JENKINS_URL}"'
     					}
   				}
-
-		}
-
-agent {
-  label 'Agent-Tomcat'
-}
-	stages {
   		stage('stage3') {
-					when {
-  						branch 'main* dev* '
-						}
     				steps {
       					echo "Branch Name: ${BRANCH_NAME}"
     					}
