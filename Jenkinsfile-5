@@ -8,7 +8,7 @@ parameters {
 }
 
 environment {
-		env = "${params.Environment}"
+		environment = "${params.Environment}"
   		user = "${params.usr}"
 }
 
@@ -16,14 +16,14 @@ environment {
 		stage('stage1') {
 				agent { label 'Agent-Sonar' }
     				steps {
-      					sh 'echo "Hi this is: ${user}"'
+      					sh 'echo "Hi this is: ${env.user}"'
 					sh 'echo "Build URL: ${BUILD_URL}"'
     					}
   				}
 		stage('stage2') {
 				agent { label 'Agent-Sonar' }
     				steps {
-      					sh 'echo "Deployment Environment: ${env}"'
+      					sh 'echo "Deployment Environment: ${env.environment}"'
 					sh 'echo "Jenkins URL: ${JENKINS_URL}"'
     					}
   				}
@@ -53,7 +53,7 @@ environment {
 
 		post {
   		always {
-    			mail body: '''$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS:
+    			mail body: '''${env.PROJECT_NAME} - Build # $BUILD_NUMBER - $BUILD_STATUS:
 
 			Check console output at $BUILD_URL to view the results.''', subject: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!', to: 'yashwinrajnov23@gmail.com'
  			}
