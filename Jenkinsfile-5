@@ -7,12 +7,12 @@ parameters {
   string defaultValue: 'Yashwinraj', name: 'usr'
 }
 
-	stages {
-		environment {
+environment {
 		env = "${params.Environment}"
   		user = "${params.usr}"
-		}
-  		
+}
+
+	stages {		
 		stage('stage1') {
 				agent { label 'Agent-Sonar' }
     				steps {
