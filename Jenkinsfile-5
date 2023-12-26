@@ -16,7 +16,8 @@ environment {
 		stage('stage1') {
 				agent { label 'Agent-Sonar' }
     				steps {
-      					sh 'echo "Hi this is: ${env.user}"'
+					user = ${env.user}
+      					sh 'echo "Hi this is: ${user}"'
 					sh 'echo "Build URL: ${BUILD_URL}"'
     					}
   				}
