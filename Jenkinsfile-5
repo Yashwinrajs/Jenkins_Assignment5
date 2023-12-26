@@ -7,16 +7,16 @@ parameters {
   string defaultValue: 'Yashwinraj', name: 'usr'
 }
 
-environment {
-  env = "${params.Environment}"
-  user = "${params.usr}"
-}
-
 	stages {
-  		stage('stage1') {
+		environment {
+		env = "${params.Environment}"
+  		user = "${params.usr}"
+		}
+  		
+		stage('stage1') {
 				agent { label 'Agent-Sonar' }
     				steps {
-      					sh 'echo "Hi this is: ${usr}"'
+      					sh 'echo "Hi this is: ${user}"'
 					sh 'echo "Build URL: ${BUILD_URL}"'
     					}
   				}
@@ -53,9 +53,9 @@ environment {
 
 		post {
   		always {
-    			mail body: '''${PROJECT_NAME} - Build # ${BUILD_NUMBER} - ${BUILD_STATUS}:
+    			mail body: '''$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS:
 
-			Check console output at ${BUILD_URL} to view the results.''', subject: '${PROJECT_NAME} - Build # ${BUILD_NUMBER} - ${BUILD_STATUS}!', to: 'yashwinrajnov23@gmail.com'
+			Check console output at $BUILD_URL to view the results.''', subject: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!', to: 'yashwinrajnov23@gmail.com'
  			}
 		}
 	
