@@ -8,7 +8,7 @@ parameters {
 }
 
 environment {
-		environment = "${params.Environment}"
+		envi = "${params.Environment}"
   		user = "${params.usr}"
 }
 
@@ -16,15 +16,14 @@ environment {
 		stage('stage1') {
 				agent { label 'Agent-Sonar' }
     				steps {
-					user = ${env.user}
-      					sh 'echo "Hi this is: ${user}"'
+      					echo "Hi this is: ${user}"
 					sh 'echo "Build URL: ${BUILD_URL}"'
     					}
   				}
 		stage('stage2') {
 				agent { label 'Agent-Sonar' }
     				steps {
-      					sh 'echo "Deployment Environment: ${env.environment}"'
+      					echo "Deployment Environment: ${envi}"
 					sh 'echo "Jenkins URL: ${JENKINS_URL}"'
     					}
   				}
