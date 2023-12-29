@@ -32,7 +32,7 @@ environment {
   		stage('stage3') {
 				agent { label 'Agent-Tomcat' }
 				when {
-                			expression { currentBuild.resultIsBetterOrEqualTo('SUCCESS') && ( ${env.BRANCH_NAME} == 'origin/main' || ${env.BRANCH_NAME} == 'dev' ) }
+                			expression { currentBuild.resultIsBetterOrEqualTo('SUCCESS') && ( ${env.BRANCH_NAME} == 'main' || ${env.BRANCH_NAME} == 'dev' ) }
             			}
     				steps {
       					sh 'echo "Branch Name: ${GIT_BRANCH}"'
