@@ -5,6 +5,7 @@ agent none
 parameters {
   choice choices: ['dev', 'qa'], name: 'Environment'
   string defaultValue: 'Yashwinraj', name: 'usr'
+  booleanParam 'Boolean'
 }
 
 environment {
